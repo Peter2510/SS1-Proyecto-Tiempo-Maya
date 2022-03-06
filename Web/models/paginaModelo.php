@@ -74,14 +74,7 @@ $elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria
 
     ?>
 
-
-
-
-
     <?php include "../blocks/bloquesJs.html" ?>
-
-
-
 
 </body>
 

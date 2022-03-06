@@ -26,6 +26,7 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nom
     <?php include "../blocks/bloquesCss.html" ?>
     <link rel="stylesheet" href="../css/estilo.css?v=<?php echo (rand()); ?>" />
     <link rel="stylesheet" href="../css/paginaModelo.css?v=<?php echo (rand()); ?>" />
+    <link rel="stylesheet" href="../css/simbolosCalendario.css?v=<?php echo(rand()); ?>" />
 
 
 </head>
@@ -63,10 +64,25 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nom
                     <h3 class="section-title">Elementos</h3>
                 </div>
                 <?php foreach($datos as $dato){
-                   $stringPrint = "<h4 id='".$dato['nombre']."'>".$dato['nombre']."</h4>";
-                   $stringPrint.="<h5>Significado</h5> <p>".$dato['significado']."</p>";
-                   $stringPrint.="<p>".$dato['htmlCodigo']."</p> <hr>";
-                   echo $stringPrint;
+                    $nomImg = $dato['nombre'];
+                    $nomImg = strtolower($nomImg);
+                    $nomImg = str_replace(array("'","’"), '', $nomImg);
+                   
+                    
+                    $stringPrint = "<h4 id='".$dato['nombre']."'>".$dato['nombre']."</h4>";
+                    $stringPrint.="<h5>Significado</h5> <p>".$dato['significado']."</p>";
+                    $stringPrint.="<p>".$dato['htmlCodigo']."</p>";
+
+                    if($tabla == 'uinal') {
+                        $stringPrint.="<div align='center'><img class=\"img-descripcion\" src=\"../imgs/Calendario Haab/uinales/".$nomImg.".png\"></div>";
+                    } else if($tabla == 'nahual') {
+                        $stringPrint.="<div align='center'><img class=\"img-descripcion\" src=\"../imgs/Calendario Cholquij/nahuales/".$nomImg.".jpg\"></div>";
+                    } else if($tabla == 'energia') {
+                        $stringPrint.="<div align='center'><img class=\"img-descripcion\" src=\"../imgs/Calendario Cholquij/energias/".$nomImg.".png\"></div>";
+                    }
+                   
+                    $stringPrint .= "<hr>";
+                    echo $stringPrint;
                 }?>
             </div>
 
