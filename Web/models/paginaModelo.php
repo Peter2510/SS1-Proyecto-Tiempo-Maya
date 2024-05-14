@@ -3,9 +3,9 @@
 
 $conn = include '../conexion/conexion.php';
 $pagina = $_GET['pagina'];
-$informacion = $conn->query("SELECT htmlCodigo,seccion,nombre FROM tiempo_maya.pagina WHERE categoria='" . $pagina . "' order by orden;");
-$secciones = $conn->query("SELECT seccion FROM tiempo_maya.pagina WHERE categoria='" . $pagina . "' group by seccion  order by orden;");
-$elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria='" . $pagina . "' AND nombre!='Informacion' AND seccion!='Informacion' order by orden;");
+$informacion = $conn->query("SELECT htmlCodigo,seccion,nombre FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' order by orden;");
+$secciones = $conn->query("SELECT seccion FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' GROUP BY seccion;");
+$elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' AND nombre!='Informacion' AND seccion!='Informacion' order by orden;");
 
 
 
@@ -28,16 +28,19 @@ $elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria
 
 <body>
     <section id="inicio">
+    
         <div id="inicioContainer" class="inicio-container">
 
             <?php echo "<h1>" . $pagina . " </h1>";
-            foreach ($secciones as $seccion) {
-                echo " <a href='#" . $seccion['seccion'] . "' class='btn-get-started'>" . $seccion['seccion'] . "</a>";
-            }
             ?>
+            <img class="imagenElemento3" alt="" src="../img/logonew3.png">
+            <br>
+            <br>
+            <br>
+            <h1 style="font-size: 20px;">Consulta Abajo</h1>
         </div>
     </section>
-
+    <br><br><br><br>
     <?php
 
 
@@ -54,7 +57,7 @@ $elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria
                 foreach ($elementos as $elemento) {
                     if ($elemento['nombre'] != 'Uayeb' && $elemento['nombre'] == $info['nombre']) {
                         $tabla = strtolower($elemento['nombre']);
-                        $elementosEl = $conn->query("SELECT nombre FROM tiempo_maya." . $tabla . ";");
+                        $elementosEl = $conn->query("SELECT nombre FROM tiempomaya." . $tabla . ";");
                         $stringPrint .= "<ul>";
                         foreach ($elementosEl as $el) {
                             if ($el['nombre'] == "Informacion") {

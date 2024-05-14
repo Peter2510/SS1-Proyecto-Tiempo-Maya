@@ -8,9 +8,9 @@ session_start(); ?>
 $conn = include '../conexion/conexion.php';
 $tabla = $_GET['elemento'];
 $table =strtolower($tabla);
-$datos = $conn->query("SELECT nombre,significado,htmlCodigo FROM tiempo_maya." . $table . ";");
+$datos = $conn->query("SELECT nombre,significado,htmlCodigo FROM tiempomaya." . $table . ";");
 $elementos = $datos;
-$informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nombre='" . $tabla . "';");
+$informacion = $conn->query("SELECT htmlCodigo FROM tiempomaya.pagina WHERE nombre='" . $tabla . "';");
 
 
 
