@@ -298,7 +298,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .nav-menu a {
-  padding: 0 8px 10px 8px;
+  padding: 8px 8px 0px 8px;
   text-decoration: none;
   display: inline-block;
   color: #fff;
