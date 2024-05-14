@@ -84,13 +84,12 @@ $cholquij = $nahual . " " . strval($energia);
                 </div>
 
             </div>
+        </section>
     </div>
-    </section>
-    </div>
-
 
     <?php include "blocks/bloquesJs1.html" ?>
 
 </body>
+
 
 </html>

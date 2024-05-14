@@ -15,9 +15,20 @@ $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria=
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
     <title>Tiempo Maya - <?php echo $pagina ?></title>
+    <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="Web que difunde conocimientos sobre la cultura Maya, como sus calendarios, el conteo del tiempo, los Nahuales y las energías. Su objetivo es despertar interés en la cultura Maya y facilitar la interacción con el usuario, sirviendo como canal de comunicación y construcción del conocimiento para quienes estén interesados.">
+    <meta name="keywords" content="Cholqij, Habb, Rueda Calendárica, Nahual, energias, kines, uniales, nahuales, tiempo, maya, tzolkin, cuenta larga">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <meta property="og:image" content="http://localhost/tiempo-maya/img/tiempo-maya.png">
+    <meta property="og:title" content="Tiempo Maya">
+    <meta property="og:description" content="Web que difunde conocimientos sobre la cultura Maya, como sus calendarios, el conteo del tiempo, los Nahuales y las energías. Su objetivo es despertar interés en la cultura Maya y facilitar la interacción con el usuario, sirviendo como canal de comunicación y construcción del conocimiento para quienes estén interesados.">
+    <meta property="og:url" content="https://tiempomaya.com/">
+    <meta property="og:site_name" content="Tiempo Maya">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_GT">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.ico">
     <?php include "../blocks/bloquesCss.html" ?>
     <link rel="stylesheet" href="../css/estilo.css?v=<?php echo (rand()); ?>" />
     <link rel="stylesheet" href="../css/paginaModelo.css?v=<?php echo (rand()); ?>" />
