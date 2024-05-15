@@ -8,7 +8,7 @@ session_start(); ?>
 $conn = include '../conexion/conexion.php';
 $tabla = $_GET['elemento'];
 $table = strtolower($tabla);
-$datos = $conn->query("SELECT nombre,significado,htmlCodigo FROM tiempomaya." . $table . ";");
+$datos = $conn->query("SELECT nombre,significado,htmlCodigo,imagen FROM tiempomaya." . $table . ";");
 $elementos = $datos;
 $informacion = $conn->query("SELECT htmlCodigo FROM tiempomaya.pagina WHERE nombre='" . $tabla . "';");
 
@@ -74,9 +74,13 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempomaya.pagina WHERE nomb
                 <div class="section-header">
                     <h3 class="section-title">Elementos</h3>
                 </div>
-                <?php foreach ($datos as $dato): ?>
+                <?php foreach ($datos as $dato) : ?>
                     <div class="col-12">
-                        <h4 id='<?php echo $dato['nombre']; ?>'><?php echo $dato['nombre']; ?></h4>
+                        <h4 class="text-center" id='<?php echo htmlspecialchars($dato['nombre'], ENT_QUOTES, 'UTF-8'); ?>'><?php echo htmlspecialchars($dato['nombre'], ENT_QUOTES, 'UTF-8'); ?></h4>
+                            <div class="text-center">
+                                <img src="<?php echo htmlspecialchars($dato['imagen'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($dato['nombre'], ENT_QUOTES, 'UTF-8'); ?>" class="img-fluid custom-img-size">
+                            </div>
+                                                
                         <h5>Significado</h5>
                         <p><?php echo $dato['significado']; ?></p>
                         <p><?php echo $dato['htmlCodigo']; ?></p>
