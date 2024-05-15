@@ -72,11 +72,11 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempomaya.pagina WHERE nomb
         <div class="container">
             <div class="row about-container">
                 <div class="section-header">
-                    <h3 class="section-title">Elementos</h3>
+                    <h3 class="section-title mb-5 mt-2">Elementos</h3>
                 </div>
                 <?php foreach ($datos as $dato) : ?>
                     <div class="col-12">
-                        <h4 class="text-center" id='<?php echo htmlspecialchars($dato['nombre'], ENT_QUOTES, 'UTF-8'); ?>'><?php echo htmlspecialchars($dato['nombre'], ENT_QUOTES, 'UTF-8'); ?></h4>
+                        <h3 class="text-center" id='<?php echo htmlspecialchars($dato['nombre'], ENT_QUOTES, 'UTF-8'); ?>'><?php echo htmlspecialchars($dato['nombre'], ENT_QUOTES, 'UTF-8'); ?></h4>
                             <div class="text-center">
                                 <img src="<?php echo htmlspecialchars($dato['imagen'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($dato['nombre'], ENT_QUOTES, 'UTF-8'); ?>" class="img-fluid custom-img-size">
                             </div>
