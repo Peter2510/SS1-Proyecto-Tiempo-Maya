@@ -3,8 +3,29 @@
     transition: 0.5s;
     width: 50%;
 }
-#formulario h1{
+
+#formulario h1 {
     margin: 30px;
     padding: 0;
 }
 
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #47dbcf7c #000000a6;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: 3px solid #ffffff;
+}
