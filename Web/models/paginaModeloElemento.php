@@ -74,16 +74,19 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempomaya.pagina WHERE nomb
                 <div class="section-header">
                     <h3 class="section-title">Elementos</h3>
                 </div>
-                <?php foreach ($datos as $dato) {
-                    $stringPrint = "<h4 id='" . $dato['nombre'] . "'>" . $dato['nombre'] . "</h4>";
-                    $stringPrint .= "<h5>Significado</h5> <p>" . $dato['significado'] . "</p>";
-                    $stringPrint .= "<p>" . $dato['htmlCodigo'] . "</p> <hr>";
-                    echo $stringPrint;
-                } ?>
+                <?php foreach ($datos as $dato): ?>
+                    <div class="col-12">
+                        <h4 id='<?php echo $dato['nombre']; ?>'><?php echo $dato['nombre']; ?></h4>
+                        <h5>Significado</h5>
+                        <p><?php echo $dato['significado']; ?></p>
+                        <p><?php echo $dato['htmlCodigo']; ?></p>
+                        <hr>
+                    </div>
+                <?php endforeach; ?>
             </div>
-
         </div>
     </section>
+
 
 
     <?php include "../blocks/bloquesJs.html" ?>

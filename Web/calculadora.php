@@ -91,5 +91,4 @@ $cholquij = $nahual . " " . strval($energia);
 
 </body>
 
-
 </html>
