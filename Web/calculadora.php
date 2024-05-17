@@ -47,40 +47,17 @@ $cholquij = $nahual . " " . strval($energia);
             <div id="inicioContainer" class="inicio-container">
 
                 <div id='formulario'>
-                    <h1>Calculadora</h1>
+                    <h3>Calculadora</h3>
                     <form action="#" method="GET">
-                        <div class="mb-1">
+                        <div class="mb-3">
                             <label for="fecha" class="form-label">Fecha</label>
                             <input type="date" class="form-control" name="fecha" id="fecha" value="<?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?>">
                         </div>
-                        <button type="submit" class="btn btn-get-started"><i class="far fa-clock"></i> Calcular</button>
+                        <button type="submit" class="btn calc btn-lg"><i class="far fa-clock"></i> Calcular</button>
+
                     </form>
 
-                    <div id="tabla">
-                        <table class="table table-dark table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Calendario</th>
-                                    <th scope="col" style="width: 60%;">Fecha</th>
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Calendario Haab</th>
-                                    <td><?php echo isset($haab) ? $haab : ''; ?></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Calendario Cholquij</th>
-                                    <td><?php echo isset($cholquij) ? $cholquij : ''; ?></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Cuenta Larga</th>
-                                    <td><?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
 
             </div>

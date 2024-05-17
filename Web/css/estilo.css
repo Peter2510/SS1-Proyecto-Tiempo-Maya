@@ -30,7 +30,6 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
   margin: 0 0 20px 0;
   padding: 0;
   color: #2dc997;
@@ -143,7 +142,6 @@ h1, h2, h3, h4, h5, h6 {
 
 #inicio h1 {
   margin: 0 0 10px 0;
-  font-size: 48px;
   font-weight: 700;
   line-height: 56px;
   text-transform: uppercase;
@@ -152,9 +150,8 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 994px) {
   #inicio h1 {
-    font-size: 28px;
+    
     line-height: 36px;
-   
   }
   
 }
@@ -184,7 +181,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
   #inicio h2 {
-    font-size: 18px;
+    
     line-height: 24px;
     margin-bottom: 30px;
   }

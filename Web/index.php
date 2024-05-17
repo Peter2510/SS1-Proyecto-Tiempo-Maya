@@ -49,20 +49,22 @@ $cholquij = $nahual . " " . strval($energia);
   <div>
 
   <section id="inicio" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-  <div id="inicioContainer" class="inicio-container" style="text-align: center;">
-    <h1><br><br>Bienvenido al Tiempo Maya</h1>
-    <div id='texto' style="padding: 15px; width: auto; max-width: 800px; margin: 0 auto;">
-      <p style="color: whitesmoke; text-align: center; font-size: 1.2rem;">
-        Aquí podrás explorar los diversos calendarios mayas, entender cómo contaban el tiempo, aprender sobre los nahuales y las energías que los mayas consideraban importantes.
-      </p>
-    </div>
-    <div id='formulario' style="padding: 15px; width: auto;">
-      <h5 style="color: whitesmoke;">Calendario Haab : <?php echo isset($haab) ? $haab : ''; ?></h5>
-      <h5 style="color: whitesmoke;">Calendario Cholquij : <?php echo isset($cholquij) ? $cholquij : ''; ?></h5>
-      <h5 style="color: whitesmoke;">Cuenta Larga : <?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></h5>
-      <label style="color: whitesmoke;"><?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?></label>
-    </div>
-  </div>
+ <div id="inicioContainer" class="inicio-container" style="text-align: center;">
+   <h1><br><br>Bienvenido al Tiempo Maya</h1>
+
+
+   <div id='formulario' style="padding: 15px; width: auto;">
+   <div id='texto' style="padding: 12px; width: auto; max-width: 800px; margin: 0 auto;">
+     <p style="color: whitesmoke; text-align: center; font-size: 1.2rem; margin:0">
+       Aquí podrás explorar los diversos calendarios mayas, entender cómo contaban el tiempo, aprender sobre los nahuales y las energías que los mayas consideraban importantes.
+     </p>
+   </div>
+     <h5 class="mt-3" style="color: whitesmoke;">Calendario Haab : <?php echo isset($haab) ? $haab : ''; ?></h5>
+     <h5 style="color: whitesmoke;">Calendario Cholquij : <?php echo isset($cholquij) ? $cholquij : ''; ?></h5>
+     <h5 style="color: whitesmoke;">Cuenta Larga : <?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></h5>
+     <label style="color: whitesmoke;"><?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?></label>
+   </div>
+ </div>
 </section>
 
   </div>
