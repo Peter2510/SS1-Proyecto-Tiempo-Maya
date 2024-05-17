@@ -37,6 +37,23 @@ $cholquij = $nahual . " " . strval($energia);
     <?php include "blocks/bloquesCss.html" ?>
     <link rel="stylesheet" href="css/estilo.css?v=<?php echo (rand()); ?>" />
     <link rel="stylesheet" href="css/calculadora.css?v=<?php echo (rand()); ?>" />
+
+    <style>
+        .canvas-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 150%; /* Aspect ratio */
+        }
+        #imagenCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -56,7 +73,7 @@ $cholquij = $nahual . " " . strval($energia);
                         <button type="submit" class="btn calc btn-lg mb-3"><i class="far fa-clock"></i> Calcular</button>
                     </form>
 
-                    <div id="tabla" class="table-responsive">
+                     <div id="tabla" class="table-responsive">
                         <table class="table table-dark table-striped custom-table">
                             <thead>
                                 <tr>
@@ -79,8 +96,23 @@ $cholquij = $nahual . " " . strval($energia);
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
+                    </div> 
 
+
+
+                    <!-- <section id="info">
+                    <h2>Información</h2>
+                    <p>Este es un ejemplo de información que se incluirá en la imagen.</p>
+                    <ul>
+                        <li>Dato 1</li>
+                        <li>Dato 2</li>
+                        <li>Dato 3</li>
+                    </ul>
+                </section> -->
+
+                <!-- Botón de Descarga -->
+                <button id="btnDescargar" class="btn btn-primary mt-3">Descargar Imagen</button>
+            
 
 
                 </div>
@@ -88,6 +120,57 @@ $cholquij = $nahual . " " . strval($energia);
             </div>
         </section>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <!-- Script Personalizado -->
+    <script>
+        // Función para generar la imagen y descargarla
+// Función para generar la imagen y descargarla
+function descargarImagen() {
+    // Capturar el elemento que contiene la información
+    var elementoInfo = document.getElementById('tabla');
+
+    // Convertir el elemento a una imagen en un canvas
+    html2canvas(elementoInfo, { 
+        allowTaint: true,
+        useCORS: true
+    }).then(function(canvas) {
+        // Crear un canvas secundario para agregar el fondo
+        var canvasConFondo = document.createElement('canvas');
+        var ctxFondo = canvasConFondo.getContext('2d');
+
+        // Establecer el tamaño del canvas secundario
+        canvasConFondo.width = canvas.width;
+        canvasConFondo.height = canvas.height;
+
+        // Rellenar el fondo del canvas secundario con un color azul
+        // ctxFondo.fillStyle = 'blue';
+        //ctxFondo.fillRect(0, 0, canvasConFondo.width, canvasConFondo.height);
+
+        // Dibujar la imagen original sobre el canvas secundario
+        ctxFondo.drawImage(canvas, 0, 0);
+
+        // Crear un enlace para descargar la imagen
+        var enlace = document.createElement('a');
+        enlace.href = canvasConFondo.toDataURL('image/png');
+
+        var fechaInput = document.getElementById('fecha');
+
+        // Obtener el valor de la fecha seleccionada
+        var fechaSeleccionada = fechaInput.value;
+        
+        enlace.download = 'infografia-'+fechaSeleccionada+'.png';
+        
+        // Hacer clic en el enlace para iniciar la descarga
+        enlace.click();
+    });
+}
+
+// Escuchar el evento de clic en el botón de descargar
+document.getElementById('btnDescargar').addEventListener('click', descargarImagen);
+
+    </script>
+
 
 
     <?php include "blocks/bloquesJs1.html" ?>
