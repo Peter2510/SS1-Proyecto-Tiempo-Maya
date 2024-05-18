@@ -16,6 +16,7 @@ $cuenta_larga = include 'backend/buscar/conseguir_fecha_cuenta_larga.php';
 $cholquij = $nahual . " " . strval($energia);
 $imagenNahual = include 'backend/buscar/conseguir_imagen_nahual.php';
 $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
+$infoNahual = include 'backend/buscar/conseguir_info_nahual.php';
 
 
 
@@ -77,7 +78,7 @@ $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
         </div>
     </section>
 
-    <div class="container-fluid">
+    <div id="body-calc" class="container-fluid text-center">
         <section id="formulario" class="row justify-content-center align-items-center">
             <div class="col-md-8">
                 <h3 class="text-light mt-3">Calculadora</h3>
@@ -99,72 +100,77 @@ $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
                     <button type="submit" class="btn calc btn-lg mb-3"><i class="far fa-clock"></i> Calcular</button>
                 </form>
             </div>
-
-            <div id="calendar">
-
-                <div class="col-md-8">
-                    <div class="calendar-section">
-                        <h3 class="text-light fw-bold">Calendario Haab</h3>
-                        <div class="info">
-                            <p class="text-light text-center fs-4"><?php echo isset($haab) ? $haab : ''; ?></p>
-                        </div>
-                        <div class="image">
-                            <img class="me-3 mb-3" src="<?php echo $infoUinal[0]['imagen'] ?>" alt="Imagen Haab">
-                            <img class="mb-3" src="<?php echo $infoUinal[0]['imagenDia'] ?>" alt="Imagen Maya">
-                            <div class="text-light">
-                                <h5 class="mt-2 mb-2 text-light fw-bold text-start">Significado</h5>
-                                <p class="mt-2 mb-2"><?php echo $infoUinal[0]['significado'] ?></p>
-                                <?php echo $infoUinal[0]['htmlCodigo'] ?>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="calendar-section">
-                        <h3 class="text-light fw-bold">Calendario Cholquij</h3>
-                        <div class="info">
-                            <p class="text-light"><?php echo isset($cholquij) ? $cholquij : ''; ?></p>
-                        </div>
-                        <div class="image">
-                            <img src="<?php echo $imagenNahual ?>" alt="Imagen Larga">
-                        </div>
-                    </div>
-
-                    <div class="calendar-section">
-                        <h3 class="text-light fw-bold">Calendario Larga</h3>
-                        <div class="info">
-                            <p class="text-light"><?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></p>
-                        </div>
-                        <div class="image">
-                            <img src="ruta_a_la_imagen_larga.png" alt="Imagen Larga">
-                        </div>
-                    </div>
-
-                    <div class="calendar-section">
-                        <h3 class="text-light fw-bold">Calendario Gregoriano</h3>
-                        <div class="info">
-                            <p class="text-light text-center fs-4">
-                                <?php
-                                // Mostrar la fecha seleccionada o la fecha actual en el párrafo
-                                $numero_mes = date('n', strtotime($fecha));
-                                $mes = $numero_mes < 10 ? '0' . $numero_mes : $numero_mes;
-                                $fecha_formateada = date('d/' . $mes . '/Y', strtotime($fecha));
-                                echo $fecha_formateada;
-                                ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                </div>
         </section>
-
     
+    <section id="calendar" class="row justify-content-center align-items-center">
+        <div class="col-md-10" id="infografia">
+            <div class="calendar-section">
+                <h3 class="text-light fw-bold">Calendario Haab</h3>
+                <div class="info">
+                    <p class="text-light text-center fs-4"><?php echo isset($haab) ? $haab : ''; ?></p>
+                </div>
+                <div class="image">
+                    <img class="me-3 mb-3" src="<?php echo $infoUinal[0]['imagen'] ?>" alt="Imagen Haab">
+                    <img class="mb-3" src="<?php echo $infoUinal[0]['imagenDia'] ?>" alt="Imagen Maya">
+                    <div class="text-light">
+                        <h5 class="mt-2 mb-2 text-light fw-bold text-start">Significado</h5>
+                        <p class="mt-2 mb-2"><?php echo $infoUinal[0]['significado'] ?></p>
+                        <?php echo $infoUinal[0]['htmlCodigo'] ?>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Repite las siguientes secciones para los otros calendarios -->
+
+            <div class="calendar-section">
+                <h3 class="text-light fw-bold">Calendario Cholquij</h3>
+                <div class="info">
+                    <p class="text-light text-center fs-4"><?php echo isset($cholquij) ? $cholquij : ''; ?></p>
+                </div>
+                <div class="image">
+                    <img class="me-3 mb-3" src="<?php echo $infoNahual[0]['imagen'] ?>" alt="Imagen Haab">
+                    <img class="mb-3" src="<?php echo $infoNahual[0]['imagenDia'] ?>" alt="Imagen Maya">
+                    <div class="text-light">
+                        <h5 class="mt-2 mb-2 text-light fw-bold text-start">Significado</h5>
+                        <p class="mt-2 mb-2"><?php echo $infoNahual[0]['significado'] ?></p>
+                        <?php echo $infoNahual[0]['htmlCodigo'] ?>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="calendar-section">
+                <h3 class="text-light fw-bold">Calendario Larga</h3>
+                <div class="info">
+                    <p class="text-light"><?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></p>
+                </div>
+                <div class="image">
+                    <img src="ruta_a_la_imagen_larga.png" alt="Imagen Larga">
+                </div>
+            </div>
+
+            <div class="calendar-section">
+                <h3 class="text-light fw-bold">Calendario Gregoriano</h3>
+                <div class="info">
+                    <p class="text-light text-center fs-4">
+                        <?php
+                        // Mostrar la fecha seleccionada o la fecha actual en el párrafo
+                        $numero_mes = date('n', strtotime($fecha));
+                        $mes = $numero_mes < 10 ? '0' . $numero_mes : $numero_mes;
+                        $fecha_formateada = date('d/' . $mes . '/Y', strtotime($fecha));
+                        echo $fecha_formateada;
+                        ?>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
     <div class="text-center">
         <button id="btnDescargar" class="btn btn-primary mt-3">Descargar Imagen</button>
     </div>
     </div>
-
-
     <?php include "blocks/bloquesJs1.html" ?>
 
 </body>

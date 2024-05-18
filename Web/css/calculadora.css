@@ -1,8 +1,27 @@
+#body-calc {
+    background: url(../assets/tik.jpg) top center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 0;
+    margin: auto;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+}
+
 #formulario {
     background: rgba(63, 64, 66, 0.7);
     transition: 0.5s;
     width: 60%;
-    width: 80%; /* Cambiado a un porcentaje más alto */
+    width: 50%; /* Cambiado a un porcentaje más alto */
+    margin: auto;
+    padding: 20px;
+}
+
+#calendar {
+    background: rgba(63, 64, 66, 0.7);
+    transition: 0.5s;
+    width: 60%;
+    width: 50%; /* Cambiado a un porcentaje más alto */
     margin: auto;
     padding: 20px;
 }

@@ -1,7 +1,7 @@
 // Función para generar la imagen y descargarla
 function descargarImagen() {
     // Capturar el elemento que contiene la información
-    var elementoInfo = document.getElementById('calendar');
+    var elementoInfo = document.getElementById('infografia');
 
     // Convertir el elemento a una imagen en un canvas
     html2canvas(elementoInfo, {
