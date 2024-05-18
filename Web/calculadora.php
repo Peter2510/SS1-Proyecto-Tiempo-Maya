@@ -42,30 +42,14 @@ $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
     <link rel="stylesheet" href="css/estilo.css?v=<?php echo (rand()); ?>" />
     <link rel="stylesheet" href="css/calculadora.css?v=<?php echo (rand()); ?>" />
 
-    <style>
-        .canvas-container {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 150%;
-            /* Aspect ratio */
-        }
-
-        #imagenCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
 
 </head>
 
 <body>
 
-    <?php include "NavBar.php" ?>
+
     <div>
+
         <section id="inicio">
             <div id="inicioContainer" class="inicio-container">
 
@@ -74,6 +58,16 @@ $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
                     <form action="#" method="GET">
                         <div class="mb-3">
                             <label for="fecha" class="form-label text-light">Fecha</label>
+                            <?php
+                            // Verificar si se ha enviado una fecha
+                            if (isset($_GET['fecha']) && !empty($_GET['fecha'])) {
+                                // Si se ha enviado una fecha, usarla como valor del campo de entrada
+                                $fecha = $_GET['fecha'];
+                            } else {
+                                // Si no se ha enviado ninguna fecha, establecer la fecha actual
+                                $fecha = date('Y-m-d');
+                            }
+                            ?>
                             <input type="date" class="form-control" name="fecha" id="fecha" value="<?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?>">
                         </div>
                         <button type="submit" class="btn calc btn-lg mb-3"><i class="far fa-clock"></i> Calcular</button>
@@ -125,7 +119,7 @@ $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
                         </div>
                         <div class="calendar-section row">
                             <div class="col-12">
-                                <h3>Calendario Cholquij</h3>
+                                <h3 class="text-light fw-bold" >Calendario Cholquij</h3>
                             </div>
                             <div class="col-12 info">
                                 <td><?php echo isset($cholquij) ? $cholquij : ''; ?></td>
@@ -136,7 +130,7 @@ $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
                         </div>
                         <div class="calendar-section row">
                             <div class="col-12">
-                                <h3>Calendario Larga</h3>
+                                <h3 class="text-light fw-bold">Calendario Larga</h3>
                             </div>
                             <div class="col-12 info">
                                 <td><?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></td>
@@ -145,72 +139,32 @@ $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
                                 <img src="ruta_a_la_imagen_larga.png" alt="Imagen Larga">
                             </div>
                         </div>
+                        <div class="calendar-section row">
+                            <div class="col-12">
+                                <h3 class="text-light fw-bold">Calendario Gregoriano</h3>
+                            </div>
+                            <div class="col-12 info">
+                                <p class="text-light text-center fs-4">
+                                    <?php
+                                    // Mostrar la fecha seleccionada o la fecha actual en el párrafo
+                                    $numero_mes = date('n', strtotime($fecha));
+                                    $mes = $numero_mes < 10 ? '0' . $numero_mes : $numero_mes;
+                                    $fecha_formateada = date('d/' . $mes . '/Y', strtotime($fecha));
+                                    echo $fecha_formateada;
+                                    ?>
+                                </p>
+                            </div>
+                        </div>
                         <div class="text-center">
                         </div>
                     </div>
-                    <button id="btnDescargar" class="btn btn-primary mt-3">Descargar Imagen</button>
                 </div>
+                <button id="btnDescargar"  class="btn btn-primary mt-3">Descargar Imagen</button>
             </div>
         </section>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
-    <!-- Script Personalizado -->
-    <script>
-        // Función para generar la imagen y descargarla
-        // Función para generar la imagen y descargarla
-        function descargarImagen() {
-            // Capturar el elemento que contiene la información
-            var elementoInfo = document.getElementById('calendar');
 
-            // Convertir el elemento a una imagen en un canvas
-            html2canvas(elementoInfo, {
-                allowTaint: true,
-                useCORS: true
-            }).then(function(canvas) {
-                // Crear un canvas secundario para agregar el fondo
-                var canvasConFondo = document.createElement('canvas');
-                var ctxFondo = canvasConFondo.getContext('2d');
-
-                // Establecer el tamaño del canvas secundario
-                canvasConFondo.width = canvas.width;
-                canvasConFondo.height = canvas.height;
-
-                var imagenFondo = new Image();
-                imagenFondo.src = 'assets/tik.jpg';
-
-                imagenFondo.onload = function() {
-                    // Dibujar la imagen de fondo en el canvas secundario
-                    ctxFondo.drawImage(imagenFondo, 0, 0, canvasConFondo.width, canvasConFondo.height);
-
-                    // Dibujar la imagen original sobre el canvas secundario
-                    ctxFondo.drawImage(canvas, 0, 0);
-
-                    // Crear un enlace para descargar la imagen
-                    var enlace = document.createElement('a');
-                    enlace.href = canvasConFondo.toDataURL('image/png');
-
-                    var fechaInput = document.getElementById('fecha');
-
-                    // Obtener el valor de la fecha seleccionada
-                    var fechaSeleccionada = fechaInput.value;
-
-                    enlace.download = 'infografia-' + fechaSeleccionada + '.png';
-
-                    // Hacer clic en el enlace para iniciar la descarga
-                    enlace.click();
-                };
-
-
-            });
-        }
-
-        // Escuchar el evento de clic en el botón de descargar
-        document.getElementById('btnDescargar').addEventListener('click', descargarImagen);
-    </script>
-
-
-
+  
     <?php include "blocks/bloquesJs1.html" ?>
 
 </body>
