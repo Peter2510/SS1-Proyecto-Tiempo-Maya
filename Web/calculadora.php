@@ -41,6 +41,7 @@ $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
     <?php include "blocks/bloquesCss.html" ?>
     <link rel="stylesheet" href="css/estilo.css?v=<?php echo (rand()); ?>" />
     <link rel="stylesheet" href="css/calculadora.css?v=<?php echo (rand()); ?>" />
+    <link rel="stylesheet" href="css/index.css?v=<?php echo (rand()); ?>" />
 
 
 </head>
@@ -49,10 +50,37 @@ $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
 
     <?php include "NavBar.php" ?>
 
+    <section id="inicio">
+
+        <div id="inicioContainer" class="inicio-container">
+
+            <?php echo "<h1>" . $pagina . " </h1>";
+            ?>
+            <img class="imagenElemento3" alt="" src="../img/logonew3.png">
+            <br>
+            <br>
+            <br>
+            <h1>Calculadora</h1>
+            <div id='texto' style="padding: 12px; width: auto; max-width: 800px; margin: 0 auto;">
+
+                <div id='formulario' style="padding: 15px; width: auto;">
+                    <p style="color: whitesmoke; text-align: center; font-size: 1.4rem; margin:0">
+                        Con la calculadora, puedes convertir una fecha del calendario Gregoriano a su equivalente en los calendarios Haab, Cholqu'ij y Cuenta Larga.
+                    </p>
+
+                    <p class="mt-3" style="color: whitesmoke; text-align: center; font-size: 1.2rem; margin:0">
+                        Desliza hacia abajo para explorar más sobre el tiempo maya.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <div>
 
-        <section id="inicio">
-            <div id="inicioContainer" class="inicio-container">
+        <section id="">
+            <div id="" class="inicio-container">
 
                 <div id='formulario'>
                     <h3 class="text-light mt-3">Calculadora</h3>
@@ -73,7 +101,7 @@ $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
                         </div>
                         <button type="submit" class="btn calc btn-lg mb-3"><i class="far fa-clock"></i> Calcular</button>
                     </form>
-                    
+
                     <div class="container mt-3" id='calendar'>
                         <div class="calendar-section row">
                             <div class="col-12">
@@ -95,7 +123,7 @@ $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
                         </div>
                         <div class="calendar-section row">
                             <div class="col-12">
-                                <h3 class="text-light fw-bold" >Calendario Cholquij</h3>
+                                <h3 class="text-light fw-bold">Calendario Cholquij</h3>
                             </div>
                             <div class="col-12 info">
                                 <td><?php echo isset($cholquij) ? $cholquij : ''; ?></td>
@@ -135,12 +163,12 @@ $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
                         </div>
                     </div>
                 </div>
-                <button id="btnDescargar"  class="btn btn-primary mt-3">Descargar Imagen</button>
+                <button id="btnDescargar" class="btn btn-primary mt-3">Descargar Imagen</button>
             </div>
         </section>
     </div>
 
-  
+
     <?php include "blocks/bloquesJs1.html" ?>
 
 </body>
