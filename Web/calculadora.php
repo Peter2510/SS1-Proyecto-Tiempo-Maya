@@ -47,6 +47,7 @@ $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
 
 <body>
 
+    <?php include "NavBar.php" ?>
 
     <div>
 
