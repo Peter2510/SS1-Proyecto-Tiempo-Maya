@@ -14,6 +14,10 @@ $energia = include 'backend/buscar/conseguir_energia_numero.php';
 $haab = include 'backend/buscar/conseguir_uinal_nombre.php';
 $cuenta_larga = include 'backend/buscar/conseguir_fecha_cuenta_larga.php';
 $cholquij = $nahual . " " . strval($energia);
+$imagenNahual = include 'backend/buscar/conseguir_imagen_nahual.php';
+$infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
+
+
 
 ?>
 <!DOCTYPE html>
@@ -43,8 +47,10 @@ $cholquij = $nahual . " " . strval($energia);
             position: relative;
             width: 100%;
             height: 0;
-            padding-bottom: 150%; /* Aspect ratio */
+            padding-bottom: 150%;
+            /* Aspect ratio */
         }
+
         #imagenCanvas {
             position: absolute;
             top: 0;
@@ -64,7 +70,7 @@ $cholquij = $nahual . " " . strval($energia);
             <div id="inicioContainer" class="inicio-container">
 
                 <div id='formulario'>
-                    <h3 class="text-light mt-3" >Calculadora</h3>
+                    <h3 class="text-light mt-3">Calculadora</h3>
                     <form action="#" method="GET">
                         <div class="mb-3">
                             <label for="fecha" class="form-label text-light">Fecha</label>
@@ -73,7 +79,7 @@ $cholquij = $nahual . " " . strval($energia);
                         <button type="submit" class="btn calc btn-lg mb-3"><i class="far fa-clock"></i> Calcular</button>
                     </form>
 
-                     <div id="tabla" class="table-responsive">
+                    <!-- <div id="tabla" class="table-responsive">
                         <table class="table table-dark table-striped custom-table">
                             <thead>
                                 <tr>
@@ -96,27 +102,54 @@ $cholquij = $nahual . " " . strval($energia);
                                 </tr>
                             </tbody>
                         </table>
-                    </div> 
+                    </div>  -->
 
+                    <div class="container mt-3" id='calendar'>
+                        <div class="calendar-section row">
+                            <div class="col-12">
+                                <h3 class="text-light fw-bold">Calendario Haab</h3>
+                            </div>
+                            <div class="col-12 info">
+                                <p class="text-light text-center fs-4"><?php echo isset($haab) ? $haab : ''; ?></p>
+                            </div>
+                            <div class="col-12 image">
+                                <img class="me-3 mb-3" src="<?php echo $infoUinal[0]['imagen'] ?>" alt="Imagen Haab">
+                                <img class="mb-3" src="<?php echo $infoUinal[0]['imagenDia'] ?>" alt="Imagen Maya">
+                                <div class="text-light">
+                                    <h5 class="mt-2 mb-2 text-light fw-bold text-start">Significado</h5>
+                                    <p class="mt-2 mb-2"><?php echo $infoUinal[0]['significado'] ?></p>
+                                    <?php echo $infoUinal[0]['htmlCodigo'] ?>
+                                </div>
 
-
-                    <!-- <section id="info">
-                    <h2>Información</h2>
-                    <p>Este es un ejemplo de información que se incluirá en la imagen.</p>
-                    <ul>
-                        <li>Dato 1</li>
-                        <li>Dato 2</li>
-                        <li>Dato 3</li>
-                    </ul>
-                </section> -->
-
-                <!-- Botón de Descarga -->
-                <button id="btnDescargar" class="btn btn-primary mt-3">Descargar Imagen</button>
-            
-
-
+                            </div>
+                        </div>
+                        <div class="calendar-section row">
+                            <div class="col-12">
+                                <h3>Calendario Cholquij</h3>
+                            </div>
+                            <div class="col-12 info">
+                                <td><?php echo isset($cholquij) ? $cholquij : ''; ?></td>
+                            </div>
+                            <div class="col-12 image">
+                                <img src="<?php echo $imagenNahual ?>" alt="Imagen Larga">
+                            </div>
+                        </div>
+                        <div class="calendar-section row">
+                            <div class="col-12">
+                                <h3>Calendario Larga</h3>
+                            </div>
+                            <div class="col-12 info">
+                                <td><?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></td>
+                            </div>
+                            <div class="col-12 image">
+                                <img src="ruta_a_la_imagen_larga.png" alt="Imagen Larga">
+                            </div>
+                        </div>
+                        <div class="text-center">
+                        </div>
+                    </div>
+                    <button id="btnDescargar" class="btn btn-primary mt-3">Descargar Imagen</button>
                 </div>
-
             </div>
         </section>
     </div>
@@ -125,50 +158,55 @@ $cholquij = $nahual . " " . strval($energia);
     <!-- Script Personalizado -->
     <script>
         // Función para generar la imagen y descargarla
-// Función para generar la imagen y descargarla
-function descargarImagen() {
-    // Capturar el elemento que contiene la información
-    var elementoInfo = document.getElementById('tabla');
+        // Función para generar la imagen y descargarla
+        function descargarImagen() {
+            // Capturar el elemento que contiene la información
+            var elementoInfo = document.getElementById('calendar');
 
-    // Convertir el elemento a una imagen en un canvas
-    html2canvas(elementoInfo, { 
-        allowTaint: true,
-        useCORS: true
-    }).then(function(canvas) {
-        // Crear un canvas secundario para agregar el fondo
-        var canvasConFondo = document.createElement('canvas');
-        var ctxFondo = canvasConFondo.getContext('2d');
+            // Convertir el elemento a una imagen en un canvas
+            html2canvas(elementoInfo, {
+                allowTaint: true,
+                useCORS: true
+            }).then(function(canvas) {
+                // Crear un canvas secundario para agregar el fondo
+                var canvasConFondo = document.createElement('canvas');
+                var ctxFondo = canvasConFondo.getContext('2d');
 
-        // Establecer el tamaño del canvas secundario
-        canvasConFondo.width = canvas.width;
-        canvasConFondo.height = canvas.height;
+                // Establecer el tamaño del canvas secundario
+                canvasConFondo.width = canvas.width;
+                canvasConFondo.height = canvas.height;
 
-        // Rellenar el fondo del canvas secundario con un color azul
-        // ctxFondo.fillStyle = 'blue';
-        //ctxFondo.fillRect(0, 0, canvasConFondo.width, canvasConFondo.height);
+                var imagenFondo = new Image();
+                imagenFondo.src = 'assets/tik.jpg';
 
-        // Dibujar la imagen original sobre el canvas secundario
-        ctxFondo.drawImage(canvas, 0, 0);
+                imagenFondo.onload = function() {
+                    // Dibujar la imagen de fondo en el canvas secundario
+                    ctxFondo.drawImage(imagenFondo, 0, 0, canvasConFondo.width, canvasConFondo.height);
 
-        // Crear un enlace para descargar la imagen
-        var enlace = document.createElement('a');
-        enlace.href = canvasConFondo.toDataURL('image/png');
+                    // Dibujar la imagen original sobre el canvas secundario
+                    ctxFondo.drawImage(canvas, 0, 0);
 
-        var fechaInput = document.getElementById('fecha');
+                    // Crear un enlace para descargar la imagen
+                    var enlace = document.createElement('a');
+                    enlace.href = canvasConFondo.toDataURL('image/png');
 
-        // Obtener el valor de la fecha seleccionada
-        var fechaSeleccionada = fechaInput.value;
-        
-        enlace.download = 'infografia-'+fechaSeleccionada+'.png';
-        
-        // Hacer clic en el enlace para iniciar la descarga
-        enlace.click();
-    });
-}
+                    var fechaInput = document.getElementById('fecha');
 
-// Escuchar el evento de clic en el botón de descargar
-document.getElementById('btnDescargar').addEventListener('click', descargarImagen);
+                    // Obtener el valor de la fecha seleccionada
+                    var fechaSeleccionada = fechaInput.value;
 
+                    enlace.download = 'infografia-' + fechaSeleccionada + '.png';
+
+                    // Hacer clic en el enlace para iniciar la descarga
+                    enlace.click();
+                };
+
+
+            });
+        }
+
+        // Escuchar el evento de clic en el botón de descargar
+        document.getElementById('btnDescargar').addEventListener('click', descargarImagen);
     </script>
 
 
