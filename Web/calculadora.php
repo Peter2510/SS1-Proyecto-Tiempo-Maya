@@ -73,32 +73,7 @@ $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
                         </div>
                         <button type="submit" class="btn calc btn-lg mb-3"><i class="far fa-clock"></i> Calcular</button>
                     </form>
-
-                    <!-- <div id="tabla" class="table-responsive">
-                        <table class="table table-dark table-striped custom-table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Calendario</th>
-                                    <th scope="col" style="width: 60%;">Fecha</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Calendario Haab</th>
-                                    <td><?php echo isset($haab) ? $haab : ''; ?></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Calendario Cholquij</th>
-                                    <td><?php echo isset($cholquij) ? $cholquij : ''; ?></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Cuenta Larga</th>
-                                    <td><?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>  -->
-
+                    
                     <div class="container mt-3" id='calendar'>
                         <div class="calendar-section row">
                             <div class="col-12">
