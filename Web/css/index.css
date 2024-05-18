@@ -1,7 +1,7 @@
 #formulario {
     background: rgba(63, 64, 66, 0.7);
     transition: 0.5s;
-    width: 50%;
+    width: auto;
 }
 
 #formulario h1 {

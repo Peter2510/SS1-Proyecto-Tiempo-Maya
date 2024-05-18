@@ -77,95 +77,91 @@ $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
         </div>
     </section>
 
-    <div>
+    <div class="container-fluid">
+        <section id="formulario" class="row justify-content-center align-items-center">
+            <div class="col-md-8">
+                <h3 class="text-light mt-3">Calculadora</h3>
+                <form action="#" method="GET">
+                    <div class="mb-3">
+                        <label for="fecha" class="form-label text-light">Fecha</label>
+                        <?php
+                        // Verificar si se ha enviado una fecha
+                        if (isset($_GET['fecha']) && !empty($_GET['fecha'])) {
+                            // Si se ha enviado una fecha, usarla como valor del campo de entrada
+                            $fecha = $_GET['fecha'];
+                        } else {
+                            // Si no se ha enviado ninguna fecha, establecer la fecha actual
+                            $fecha = date('Y-m-d');
+                        }
+                        ?>
+                        <input type="date" class="form-control" name="fecha" id="fecha" value="<?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?>">
+                    </div>
+                    <button type="submit" class="btn calc btn-lg mb-3"><i class="far fa-clock"></i> Calcular</button>
+                </form>
+            </div>
 
-        <section id="">
-            <div id="" class="inicio-container">
+            <div id="calendar">
 
-                <div id='formulario'>
-                    <h3 class="text-light mt-3">Calculadora</h3>
-                    <form action="#" method="GET">
-                        <div class="mb-3">
-                            <label for="fecha" class="form-label text-light">Fecha</label>
-                            <?php
-                            // Verificar si se ha enviado una fecha
-                            if (isset($_GET['fecha']) && !empty($_GET['fecha'])) {
-                                // Si se ha enviado una fecha, usarla como valor del campo de entrada
-                                $fecha = $_GET['fecha'];
-                            } else {
-                                // Si no se ha enviado ninguna fecha, establecer la fecha actual
-                                $fecha = date('Y-m-d');
-                            }
-                            ?>
-                            <input type="date" class="form-control" name="fecha" id="fecha" value="<?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?>">
+                <div class="col-md-8">
+                    <div class="calendar-section">
+                        <h3 class="text-light fw-bold">Calendario Haab</h3>
+                        <div class="info">
+                            <p class="text-light text-center fs-4"><?php echo isset($haab) ? $haab : ''; ?></p>
                         </div>
-                        <button type="submit" class="btn calc btn-lg mb-3"><i class="far fa-clock"></i> Calcular</button>
-                    </form>
+                        <div class="image">
+                            <img class="me-3 mb-3" src="<?php echo $infoUinal[0]['imagen'] ?>" alt="Imagen Haab">
+                            <img class="mb-3" src="<?php echo $infoUinal[0]['imagenDia'] ?>" alt="Imagen Maya">
+                            <div class="text-light">
+                                <h5 class="mt-2 mb-2 text-light fw-bold text-start">Significado</h5>
+                                <p class="mt-2 mb-2"><?php echo $infoUinal[0]['significado'] ?></p>
+                                <?php echo $infoUinal[0]['htmlCodigo'] ?>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class="container mt-3" id='calendar'>
-                        <div class="calendar-section row">
-                            <div class="col-12">
-                                <h3 class="text-light fw-bold">Calendario Haab</h3>
-                            </div>
-                            <div class="col-12 info">
-                                <p class="text-light text-center fs-4"><?php echo isset($haab) ? $haab : ''; ?></p>
-                            </div>
-                            <div class="col-12 image">
-                                <img class="me-3 mb-3" src="<?php echo $infoUinal[0]['imagen'] ?>" alt="Imagen Haab">
-                                <img class="mb-3" src="<?php echo $infoUinal[0]['imagenDia'] ?>" alt="Imagen Maya">
-                                <div class="text-light">
-                                    <h5 class="mt-2 mb-2 text-light fw-bold text-start">Significado</h5>
-                                    <p class="mt-2 mb-2"><?php echo $infoUinal[0]['significado'] ?></p>
-                                    <?php echo $infoUinal[0]['htmlCodigo'] ?>
-                                </div>
+                    <div class="calendar-section">
+                        <h3 class="text-light fw-bold">Calendario Cholquij</h3>
+                        <div class="info">
+                            <p class="text-light"><?php echo isset($cholquij) ? $cholquij : ''; ?></p>
+                        </div>
+                        <div class="image">
+                            <img src="<?php echo $imagenNahual ?>" alt="Imagen Larga">
+                        </div>
+                    </div>
 
-                            </div>
+                    <div class="calendar-section">
+                        <h3 class="text-light fw-bold">Calendario Larga</h3>
+                        <div class="info">
+                            <p class="text-light"><?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></p>
                         </div>
-                        <div class="calendar-section row">
-                            <div class="col-12">
-                                <h3 class="text-light fw-bold">Calendario Cholquij</h3>
-                            </div>
-                            <div class="col-12 info">
-                                <td><?php echo isset($cholquij) ? $cholquij : ''; ?></td>
-                            </div>
-                            <div class="col-12 image">
-                                <img src="<?php echo $imagenNahual ?>" alt="Imagen Larga">
-                            </div>
+                        <div class="image">
+                            <img src="ruta_a_la_imagen_larga.png" alt="Imagen Larga">
                         </div>
-                        <div class="calendar-section row">
-                            <div class="col-12">
-                                <h3 class="text-light fw-bold">Calendario Larga</h3>
-                            </div>
-                            <div class="col-12 info">
-                                <td><?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></td>
-                            </div>
-                            <div class="col-12 image">
-                                <img src="ruta_a_la_imagen_larga.png" alt="Imagen Larga">
-                            </div>
-                        </div>
-                        <div class="calendar-section row">
-                            <div class="col-12">
-                                <h3 class="text-light fw-bold">Calendario Gregoriano</h3>
-                            </div>
-                            <div class="col-12 info">
-                                <p class="text-light text-center fs-4">
-                                    <?php
-                                    // Mostrar la fecha seleccionada o la fecha actual en el párrafo
-                                    $numero_mes = date('n', strtotime($fecha));
-                                    $mes = $numero_mes < 10 ? '0' . $numero_mes : $numero_mes;
-                                    $fecha_formateada = date('d/' . $mes . '/Y', strtotime($fecha));
-                                    echo $fecha_formateada;
-                                    ?>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="text-center">
+                    </div>
+
+                    <div class="calendar-section">
+                        <h3 class="text-light fw-bold">Calendario Gregoriano</h3>
+                        <div class="info">
+                            <p class="text-light text-center fs-4">
+                                <?php
+                                // Mostrar la fecha seleccionada o la fecha actual en el párrafo
+                                $numero_mes = date('n', strtotime($fecha));
+                                $mes = $numero_mes < 10 ? '0' . $numero_mes : $numero_mes;
+                                $fecha_formateada = date('d/' . $mes . '/Y', strtotime($fecha));
+                                echo $fecha_formateada;
+                                ?>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <button id="btnDescargar" class="btn btn-primary mt-3">Descargar Imagen</button>
-            </div>
+                </div>
         </section>
+
+    
+
+    <div class="text-center">
+        <button id="btnDescargar" class="btn btn-primary mt-3">Descargar Imagen</button>
+    </div>
     </div>
 
 

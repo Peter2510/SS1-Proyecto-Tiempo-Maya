@@ -2,10 +2,13 @@
     background: rgba(63, 64, 66, 0.7);
     transition: 0.5s;
     width: 60%;
+    width: 80%; /* Cambiado a un porcentaje más alto */
+    margin: auto;
+    padding: 20px;
 }
 
 .form-control {
-    width: 85%;
+    width: 100%; 
     font-size: 18px;
     margin: auto;
 }
