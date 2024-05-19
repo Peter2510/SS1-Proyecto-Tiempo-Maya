@@ -78,7 +78,7 @@ $infoNahual = include 'backend/buscar/conseguir_info_nahual.php';
     </section>
 
     <div id="body-calc" class="container-fluid text-center">
-        <section id="formulario" class="row justify-content-center align-items-center">
+        <section id="calendar" class="row justify-content-center align-items-center" style="padding: 15px; width: auto;">
             <div class="col-md-8">
                 <h3 class="text-light mt-3">Calculadora</h3>
                 <form action="#body-calc" method="GET">
@@ -101,7 +101,7 @@ $infoNahual = include 'backend/buscar/conseguir_info_nahual.php';
             </div>
         </section>
 
-        <section id="calendar" class="row justify-content-center align-items-center">
+        <section id="calendar" class="row justify-content-center align-items-center" style="padding: 15px; width: auto;">
             <div class="col-md-10" id="infografia">
                 <div class="calendar-section">
                     <h3 class="text-light fw-bold mt-3">Calendario Haab</h3>

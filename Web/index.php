@@ -50,13 +50,12 @@ $cholquij = $nahual . " " . strval($energia);
 
   <section id="inicio" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
  <div id="inicioContainer" class="inicio-container" style="text-align: center;">
-   <h1><br><br>Bienvenido al Tiempo Maya</h1>
-
-
+ <img alt="" src="./img/logonew.gif" width="160" height="160">
+ <h1 class="fs-1" >Bienvenido al Tiempo Maya</h1>  
    <div id='formulario' style="padding: 15px; width: auto;">
    <div id='texto' style="padding: 12px; width: auto; max-width: 800px; margin: 0 auto;">
      <p style="color: whitesmoke; text-align: center; font-size: 1.2rem; margin:0">
-       Aquí podrás explorar los diversos calendarios mayas, entender cómo contaban el tiempo, aprender sobre los nahuales y las energías que los mayas consideraban importantes.
+       Explora los diversos calendarios mayas, aprende sobre los nahuales y las energías que los mayas consideraban importantes.
      </p>
    </div>
      <h5 class="mt-3" style="color: whitesmoke;">Calendario Haab : <?php echo isset($haab) ? $haab : ''; ?></h5>

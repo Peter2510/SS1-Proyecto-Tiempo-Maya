@@ -46,25 +46,26 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempomaya.pagina WHERE nomb
 <body>
     <section id="inicio">
         <div id="inicioContainer" class="inicio-container">
-
             <?php echo "<h1>" . $tabla . " </h1>";
             ?>
-            <a href='#informacion' class='btn-get-started'>Informacion</a>
-            <a href='#elementos' class='btn-get-started'>Elementos</a>
+            <img class="imagenElemento3" alt="" src="../img/logonew3.png">
+            <img class="imagenElemento2" alt="" src="../img/flecha.png">
         </div>
     </section>
-    <section id="information">
-        <div class="container">
-            <div class="row about-container">
-                <div class="section-header">
-                    <h3 class="section-title">INFORMACION</h3>
+    <br><br><br><br>
+    <section id=" information">
+            <div class="container">
+                <div class="row about-container">
+                    <div class="section-header">
+                        <h3 class="section-title">INFORMACION</h3>
+                    </div>
+                    <?php foreach ($informacion as $info) {
+                        echo $info['htmlCodigo'];
+                    } ?>
                 </div>
-                <?php foreach ($informacion as $info) {
-                    echo $info['htmlCodigo'];
-                } ?>
-            </div>
 
-        </div>
+            </div>
+            </div>
     </section>
     <hr>
 
