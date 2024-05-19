@@ -14,7 +14,6 @@ $energia = include 'backend/buscar/conseguir_energia_numero.php';
 $haab = include 'backend/buscar/conseguir_uinal_nombre.php';
 $cuenta_larga = include 'backend/buscar/conseguir_fecha_cuenta_larga.php';
 $cholquij = $nahual . " " . strval($energia);
-$imagenNahual = include 'backend/buscar/conseguir_imagen_nahual.php';
 $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
 $infoNahual = include 'backend/buscar/conseguir_info_nahual.php';
 
@@ -82,7 +81,7 @@ $infoNahual = include 'backend/buscar/conseguir_info_nahual.php';
         <section id="formulario" class="row justify-content-center align-items-center">
             <div class="col-md-8">
                 <h3 class="text-light mt-3">Calculadora</h3>
-                <form action="#" method="GET">
+                <form action="#body-calc" method="GET">
                     <div class="mb-3">
                         <label for="fecha" class="form-label text-light">Fecha</label>
                         <?php
@@ -101,77 +100,86 @@ $infoNahual = include 'backend/buscar/conseguir_info_nahual.php';
                 </form>
             </div>
         </section>
-    
-    <section id="calendar" class="row justify-content-center align-items-center">
-        <div class="col-md-10" id="infografia">
-            <div class="calendar-section">
-                <h3 class="text-light fw-bold">Calendario Haab</h3>
-                <div class="info">
-                    <p class="text-light text-center fs-4"><?php echo isset($haab) ? $haab : ''; ?></p>
+
+        <section id="calendar" class="row justify-content-center align-items-center">
+            <div class="col-md-10" id="infografia">
+                <div class="calendar-section">
+                    <h3 class="text-light fw-bold mt-3">Calendario Haab</h3>
+                    <div class="info">
+                        <p class="text-light text-center fs-4"><?php echo isset($haab) ? $haab : ''; ?></p>
+                    </div>
+                    <div class="image">
+                        <img class="me-3 mb-3" src="<?php echo $infoUinal[0]['imagen'] ?>" alt="Imagen Haab">
+                        <img class="mb-3" src="<?php echo $infoUinal[0]['imagenDia'] ?>" alt="Imagen Maya">
+                        <div class="text-light">
+                            <h5 class="mt-2 mb-2 text-light fw-bold text-start">Significado</h5>
+                            <p class="mt-2 mb-2"><?php echo $infoUinal[0]['significado'] ?></p>
+                            <?php echo $infoUinal[0]['htmlCodigo'] ?>
+                        </div>
+                    </div>
                 </div>
-                <div class="image">
-                    <img class="me-3 mb-3" src="<?php echo $infoUinal[0]['imagen'] ?>" alt="Imagen Haab">
-                    <img class="mb-3" src="<?php echo $infoUinal[0]['imagenDia'] ?>" alt="Imagen Maya">
-                    <div class="text-light">
-                        <h5 class="mt-2 mb-2 text-light fw-bold text-start">Significado</h5>
-                        <p class="mt-2 mb-2"><?php echo $infoUinal[0]['significado'] ?></p>
-                        <?php echo $infoUinal[0]['htmlCodigo'] ?>
+
+                <div class="calendar-section mt-3">
+                    <h3 class="text-light fw-bold">Calendario Cholquij</h3>
+                    <div class="info">
+                        <p class="text-light text-center fs-4"><?php echo isset($cholquij) ? $cholquij : ''; ?></p>
+                    </div>
+                    <div class="image">
+                        <img class="me-3 mb-3" src="<?php echo $infoNahual[0]['imagen'] ?>" alt="Imagen Haab">
+                        <img class="mb-3" src="<?php echo $infoNahual[0]['imagenDia'] ?>" alt="Imagen Maya">
+                        <div class="text-light">
+                            <h5 class="mt-2 mb-2 text-light fw-bold text-start">Significado</h5>
+                            <p class="mt-2 mb-2"><?php echo $infoNahual[0]['significado'] ?></p>
+                            <?php echo $infoNahual[0]['htmlCodigo'] ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calendar-section mt-3">
+                    <h3 class="text-light fw-bold">Cuenta Larga</h3>
+                    <div class="info">
+                        <p class="text-light text-center fs-4 "><?php echo isset($cuenta_larga) ? $cuenta_larga[0] : ''; ?></p>
+                    </div>
+
+                    <div class="row row-cols-1 row-cols-md-5 g-3">
+                        <?php for ($i = 1; $i < count($cuenta_larga); $i += 3) { ?>
+                            <div class="col">
+                                <div class="image">
+
+                                    <img class="mb-3" src="<?php echo $cuenta_larga[$i + 1]; ?>" alt="Imagen Número Maya">
+                                    <img class="mb-3" src="<?php echo $cuenta_larga[$i]; ?>" alt="Imagen Cuenta Larga">
+                                    <p class="mb-1 text-center"><?php echo $cuenta_larga[$i + 2]; ?></p>
+
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+
+                </div>
+
+                <div class="calendar-section mt-3">
+                    <h3 class="text-light fw-bold">Calendario Gregoriano</h3>
+                    <div class="info">
+                        <p class="text-light text-center fs-4">
+                            <?php
+                            // Mostrar la fecha seleccionada o la fecha actual en el párrafo
+                            $numero_mes = date('n', strtotime($fecha));
+                            $mes = $numero_mes < 10 ? '0' . $numero_mes : $numero_mes;
+                            $fecha_formateada = date('d/' . $mes . '/Y', strtotime($fecha));
+                            echo $fecha_formateada;
+                            ?>
+                        </p>
                     </div>
                 </div>
             </div>
-
-            <!-- Repite las siguientes secciones para los otros calendarios -->
-
-            <div class="calendar-section">
-                <h3 class="text-light fw-bold">Calendario Cholquij</h3>
-                <div class="info">
-                    <p class="text-light text-center fs-4"><?php echo isset($cholquij) ? $cholquij : ''; ?></p>
-                </div>
-                <div class="image">
-                    <img class="me-3 mb-3" src="<?php echo $infoNahual[0]['imagen'] ?>" alt="Imagen Haab">
-                    <img class="mb-3" src="<?php echo $infoNahual[0]['imagenDia'] ?>" alt="Imagen Maya">
-                    <div class="text-light">
-                        <h5 class="mt-2 mb-2 text-light fw-bold text-start">Significado</h5>
-                        <p class="mt-2 mb-2"><?php echo $infoNahual[0]['significado'] ?></p>
-                        <?php echo $infoNahual[0]['htmlCodigo'] ?>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <div class="calendar-section">
-                <h3 class="text-light fw-bold">Calendario Larga</h3>
-                <div class="info">
-                    <p class="text-light"><?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></p>
-                </div>
-                <div class="image">
-                    <img src="ruta_a_la_imagen_larga.png" alt="Imagen Larga">
-                </div>
-            </div>
-
-            <div class="calendar-section">
-                <h3 class="text-light fw-bold">Calendario Gregoriano</h3>
-                <div class="info">
-                    <p class="text-light text-center fs-4">
-                        <?php
-                        // Mostrar la fecha seleccionada o la fecha actual en el párrafo
-                        $numero_mes = date('n', strtotime($fecha));
-                        $mes = $numero_mes < 10 ? '0' . $numero_mes : $numero_mes;
-                        $fecha_formateada = date('d/' . $mes . '/Y', strtotime($fecha));
-                        echo $fecha_formateada;
-                        ?>
-                    </p>
-                </div>
-            </div>
+        </section>
+        <div class="text-center">
+            <button id="btnDescargar" class="btn btn-primary mt-3">Descargar Imagen</button>
         </div>
-    </section>
-    <div class="text-center">
-        <button id="btnDescargar" class="btn btn-primary mt-3">Descargar Imagen</button>
-    </div>
     </div>
     <?php include "blocks/bloquesJs1.html" ?>
+
+
 
 </body>
 

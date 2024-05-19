@@ -14,7 +14,6 @@
     width: 60%;
     width: 50%; /* Cambiado a un porcentaje más alto */
     margin: auto;
-    padding: 20px;
 }
 
 #calendar {
@@ -23,7 +22,6 @@
     width: 60%;
     width: 50%; /* Cambiado a un porcentaje más alto */
     margin: auto;
-    padding: 20px;
 }
 
 .form-control {
@@ -85,8 +83,6 @@
     width: 100%;
     height: 100%;
 }
-
-
 
 
 

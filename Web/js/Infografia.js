@@ -1,5 +1,5 @@
-// Función para generar la imagen y descargarla
-function descargarImagen() {
+ // Función para generar la imagen y descargarla
+ function descargarImagen() {
     // Capturar el elemento que contiene la información
     var elementoInfo = document.getElementById('infografia');
 
@@ -12,21 +12,27 @@ function descargarImagen() {
         var canvasConFondo = document.createElement('canvas');
         var ctxFondo = canvasConFondo.getContext('2d');
 
-        // Establecer el tamaño del canvas secundario
-        canvasConFondo.width = canvas.width;
-        canvasConFondo.height = canvas.height;
 
         var imagenFondo = new Image();
         imagenFondo.src = 'assets/tik.jpg';
 
         imagenFondo.onload = function () {
 
+            var elementoRect = elementoInfo.getBoundingClientRect();
+            // Establecer el tamaño del canvas secundario
+            canvasConFondo.width = elementoRect.width;
+            canvasConFondo.height = elementoRect.height;
 
             // Dibujar la imagen de fondo en el canvas secundario
             ctxFondo.drawImage(imagenFondo, 0, 0, canvasConFondo.width, canvasConFondo.height);
 
             // Dibujar la imagen original sobre el canvas secundario
             ctxFondo.drawImage(canvas, 0, 0);
+
+            ctxFondo.font = "bold 20px Arial";
+            ctxFondo.fillStyle = "white";
+            ctxFondo.textAlign = "end";
+            ctxFondo.fillText("tiempomaya.com", canvasConFondo.width - 20, canvasConFondo.height - 20);
 
             // Crear un enlace para descargar la imagen
             var enlace = document.createElement('a');

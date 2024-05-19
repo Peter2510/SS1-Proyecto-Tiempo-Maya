@@ -68,6 +68,28 @@ if ($number4 > 19) {
 }
 $number5=12+$pivot;
 
-return strval($number5).".".strval($number4).".".strval($number3).".".strval($number2).".".strval($number1);
+$array = array();
+$array[] = strval($number5).".".strval($number4).".".strval($number3).".".strval($number2).".".strval($number1);
+$array[] = 'assets/imagenesCuentaLarga/Baktun.png';
+$array[] = 'assets/numerosMayas/'.$number5.'.png';
+$array[] = 'Baktun';
+
+$array[] = 'assets/imagenesCuentaLarga/Katun.png';
+$array[] = 'assets/numerosMayas/'.$number4.'.png';
+$array[] = 'Katun';
+
+$array[] = 'assets/imagenesCuentaLarga/Tun.png';
+$array[] = 'assets/numerosMayas/'.$number3.'.png';
+$array[] = 'Tun';
+
+$array[] = 'assets/imagenesCuentaLarga/Uinal.png';
+$array[] = 'assets/numerosMayas/'.$number2.'.png';
+$array[] = 'Uinal';
+
+$array[] = 'assets/imagenesCuentaLarga/Kin.png';
+$array[] = 'assets/numerosMayas/'.$number1.'.png';
+$array[] = 'Kin';
+
+return $array;
 
 ?>
