@@ -85,5 +85,39 @@
 }
 
 
+.imagenElemento2 {
+    width: 50px;
+    height: 65px;
+    position: relative;
+    top: 150px;
+    animation-name: move;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
 
+@keyframes spin {
+    from {
+        transform: rotateX(-20deg) rotateY(0deg);
+    }
+    to {
+        transform: rotateX(-20deg) rotateY(360deg);
+    }
+}
 
+@keyframes move {
+    50% {
+        top: 180px;
+    }
+    100% {
+        top: 150px;
+    }
+}
+
+@keyframes fade2 {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

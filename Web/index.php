@@ -50,7 +50,7 @@ $cholquij = $nahual . " " . strval($energia);
 
   <section id="inicio" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
  <div id="inicioContainer" class="inicio-container" style="text-align: center;">
- <img alt="" src="./img/logonew.gif" width="160" height="160">
+ <img class="imagenElemento3" alt="" src="./img/logonew.gif" width="160" height="160">
  <h1 class="fs-1" >Bienvenido al Tiempo Maya</h1>  
    <div id='formulario' style="padding: 15px; width: auto;">
    <div id='texto' style="padding: 12px; width: auto; max-width: 800px; margin: 0 auto;">

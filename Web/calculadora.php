@@ -56,23 +56,19 @@ $infoNahual = include 'backend/buscar/conseguir_info_nahual.php';
 
             <?php echo "<h1>" . $pagina . " </h1>";
             ?>
-            <img class="imagenElemento3" alt="" src="../img/logonew3.png">
             <br>
             <br>
             <br>
             <h1>Calculadora</h1>
+            <img class="imagenElemento3 mt-3 " alt="" src="assets/calendario.png">
             <div id='texto' style="padding: 12px; width: auto; max-width: 800px; margin: 0 auto;">
 
                 <div id='formulario' style="padding: 15px; width: auto;">
                     <p style="color: whitesmoke; text-align: center; font-size: 1.4rem; margin:0">
                         Con la calculadora, puedes convertir una fecha del calendario Gregoriano a su equivalente en los calendarios Haab, Cholqu'ij y Cuenta Larga.
                     </p>
-
-                    <p class="mt-3" style="color: whitesmoke; text-align: center; font-size: 1.2rem; margin:0">
-                        Desliza hacia abajo para explorar más sobre el tiempo maya.
-                    </p>
                 </div>
-
+                <img class="imagenElemento2" alt="" src="img/flecha.png">
             </div>
         </div>
     </section>
@@ -96,7 +92,7 @@ $infoNahual = include 'backend/buscar/conseguir_info_nahual.php';
                         ?>
                         <input type="date" class="form-control" name="fecha" id="fecha" value="<?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?>">
                     </div>
-                    <button type="submit" class="btn calc btn-lg mb-3"><i class="far fa-clock"></i> Calcular</button>
+                    <button type="submit" class="btn calc btn-lg mb-3 mt-3"><i class="far fa-clock"></i> Calcular</button>
                 </form>
             </div>
         </section>
@@ -130,7 +126,10 @@ $infoNahual = include 'backend/buscar/conseguir_info_nahual.php';
                         <div class="text-light">
                             <h5 class="mt-2 mb-2 text-light fw-bold text-start">Significado</h5>
                             <p class="mt-2 mb-2"><?php echo $infoNahual[0]['significado'] ?></p>
+                            <div class="text-start">
                             <?php echo $infoNahual[0]['htmlCodigo'] ?>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -172,10 +171,10 @@ $infoNahual = include 'backend/buscar/conseguir_info_nahual.php';
                     </div>
                 </div>
             </div>
-        </section>
-        <div class="text-center">
-            <button id="btnDescargar" class="btn btn-primary mt-3">Descargar Imagen</button>
+            <div class="text-center">
+            <button id="btnDescargar" class="btn calc btn-lg mb-3">Descargar Imagen</button>
         </div>
+        </section>
     </div>
     <?php include "blocks/bloquesJs1.html" ?>
 
