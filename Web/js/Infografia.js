@@ -14,7 +14,7 @@
 
 
         var imagenFondo = new Image();
-        imagenFondo.src = 'assets/tik.jpg';
+        imagenFondo.src = 'assets/stars.jpg';
 
         imagenFondo.onload = function () {
 

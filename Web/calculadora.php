@@ -17,7 +17,7 @@ $cholquij = $nahual . " " . strval($energia);
 $infoUinal = include 'backend/buscar/conseguir_info_uinal.php';
 $infoNahual = include 'backend/buscar/conseguir_info_nahual.php';
 
-
+    
 
 ?>
 <!DOCTYPE html>
