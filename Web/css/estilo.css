@@ -76,6 +76,8 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     transition: all 0.5s;
     z-index: 900;
+    border-bottom: 1px solid #ffffff;
+    width: 100%;
 }
 
 #header.header-fixed {
@@ -85,6 +87,8 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px 0;
     height: 78px;
     transition: all 0.5s;
+    width: 100%;
+    align-items: center;
 }
 
 #header.header-fixed1 {

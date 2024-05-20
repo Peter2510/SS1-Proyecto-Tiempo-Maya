@@ -12,7 +12,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
 
 
 <header id="header" >
-  <div class="container">
+  
     <nav class="navbar navbar-expand-lg" id="nav-menu-container">
       <div class="container-fluid" >
         <a id="title" class="navbar-brand" href="../index.php" style="color: white;font-size: 24px;"><strong>TIEMPO</strong> MAYA</a>
@@ -117,7 +117,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
         </div>
       </div>
     </nav>
-  </div>
+  
 </header>
 
 
