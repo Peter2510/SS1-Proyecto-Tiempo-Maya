@@ -110,7 +110,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
             
             <li class="nav-item"><a class="nav-link" href="../calculadora.php">Calculadora</a></li>
 
-            <li class="nav-item"><a class="nav-link" href="calculadora.php">Nahual del dia</a></li>
+            <li class="nav-item"><a class="nav-link" href="../nahualDia.php">Nahual del dia</a></li>
                         
            
           </ul>
