@@ -39,6 +39,11 @@ $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria=
 
 <body>
     <section id="inicio">
+
+    <video autoplay muted loop id="videoBackground">
+        <source id="videoSource" src="" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+      </video>
     
         <div id="inicioContainer" class="inicio-container">
 

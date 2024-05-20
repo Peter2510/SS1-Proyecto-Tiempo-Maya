@@ -48,23 +48,27 @@ $cholquij = $nahual . " " . strval($energia);
 
   <div>
 
-  <section id="inicio" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
- <div id="inicioContainer" class="inicio-container" style="text-align: center;">
- <img class="imagenElemento3" alt="" src="./img/logonew.gif" width="160" height="160">
- <h1 class="fs-1" >Bienvenido al Tiempo Maya</h1>  
-   <div id='formulario' style="padding: 15px; width: auto;">
-   <div id='texto' style="padding: 12px; width: auto; max-width: 800px; margin: 0 auto;">
-     <p style="color: whitesmoke; text-align: center; font-size: 1.2rem; margin:0">
-       Explora los diversos calendarios mayas, aprende sobre los nahuales y las energías que los mayas consideraban importantes.
-     </p>
-   </div>
-     <h5 class="mt-3" style="color: whitesmoke;">Calendario Haab : <?php echo isset($haab) ? $haab : ''; ?></h5>
-     <h5 style="color: whitesmoke;">Calendario Cholquij : <?php echo isset($cholquij) ? $cholquij : ''; ?></h5>
-     <h5 style="color: whitesmoke;">Cuenta Larga : <?php echo isset($cuenta_larga) ? $cuenta_larga[0] : ''; ?></h5>
-     <label style="color: whitesmoke;"><?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?></label>
-   </div>
- </div>
-</section>
+    <section id="inicio" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+      <video autoplay muted loop id="videoBackground">
+        <source id="videoSource" src="" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+      </video>
+      <div id="inicioContainer" class="inicio-container" style="text-align: center;">
+        <img class="imagenElemento3" alt="" src="./img/logonew.gif" width="160" height="160">
+        <h1 class="fs-1">Bienvenido al Tiempo Maya</h1>
+        <div id='formulario' style="padding: 15px; width: auto;">
+          <div id='texto' style="padding: 12px; width: auto; max-width: 800px; margin: 0 auto;">
+            <p style="color: whitesmoke; text-align: center; font-size: 1.2rem; margin:0">
+              Explora los diversos calendarios mayas, aprende sobre los nahuales y las energías que los mayas consideraban importantes.
+            </p>
+          </div>
+          <h5 class="mt-3" style="color: whitesmoke;">Calendario Haab : <?php echo isset($haab) ? $haab : ''; ?></h5>
+          <h5 style="color: whitesmoke;">Calendario Cholquij : <?php echo isset($cholquij) ? $cholquij : ''; ?></h5>
+          <h5 style="color: whitesmoke;">Cuenta Larga : <?php echo isset($cuenta_larga) ? $cuenta_larga[0] : ''; ?></h5>
+          <label style="color: whitesmoke;"><?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?></label>
+        </div>
+      </div>
+    </section>
 
   </div>
 

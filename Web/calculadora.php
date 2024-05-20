@@ -51,7 +51,10 @@ $infoNahual = include 'backend/buscar/conseguir_info_nahual.php';
     <?php include "NavBar.php" ?>
 
     <section id="inicio">
-
+    <video autoplay muted loop id="videoBackground">
+        <source id="videoSource" src="" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+      </video>
         <div id="inicioContainer" class="inicio-container">
 
             <?php echo "<h1>" . $pagina . " </h1>";
