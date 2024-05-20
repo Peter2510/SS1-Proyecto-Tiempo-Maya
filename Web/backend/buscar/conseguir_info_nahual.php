@@ -6,7 +6,7 @@ $nahual = $id % 20;
 if ($nahual < 0) {
 	$nahual = 19 + $nahual;
 }
-$Query = $conn->query("SELECT imagen, significado, htmlCodigo,imagenAnimal,cruzMaya,nombre FROM nahual WHERE idweb=".$nahual." ;");
+$Query = $conn->query("SELECT imagen, significado, htmlCodigo,imagenAnimal,cruzMaya,nombre,nombreYucateco FROM nahual WHERE idweb=".$nahual." ;");
 $resultArray = array();
 
 $for = mktime(0, 0, 0, 1, 1, 1720) / (24 * 60 * 60);
@@ -31,6 +31,8 @@ while ($row = mysqli_fetch_assoc($Query)) {
     $imagenAnimal = $row['imagenAnimal'];
     $cruzMaya = $row['cruzMaya'];
     $nombre = $row['nombre'];
+    $nombreYucateco = $row['nombreYucateco'];
+    
     
     // Aplicar substr al campo 'imagen' y almacenar el resultado en un nuevo array
     $query = substr($imagen, 3);
@@ -43,7 +45,8 @@ while ($row = mysqli_fetch_assoc($Query)) {
         'imagenDia' => 'assets/numerosMayas/'.$nn.'.png',
         'imagenAnimal' => $imagenAnimal,
         'cruzMaya' => $cruzMaya,
-        'nombre' => $nombre
+        'nombre' => $nombre,
+        'nombreYucateco' => $nombreYucateco
     );
 }
 

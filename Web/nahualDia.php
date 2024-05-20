@@ -94,6 +94,7 @@ $infoNahual = include 'backend/buscar/conseguir_info_nahual.php';
                     <div class="image">
                         <img class="me-3 mb-3" src="<?php echo $infoNahual[0]['imagenAnimal'] ?>" alt="Imagen Haab">
                         <div class="text-light">
+                            <p class="fs-6">Nombre en Yucateco: <strong> <?php echo $infoNahual[0]['nombreYucateco']; ?></strong>  </p>
                             <h5 class="mt-2 mb-2 text-light fw-bold text-start">Significado</h5>
                             <p class="mt-2 mb-2"><?php echo $infoNahual[0]['significado'] ?></p>
                             <div class="text-start">
