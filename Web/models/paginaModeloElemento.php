@@ -38,6 +38,7 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempomaya.pagina WHERE nomb
     <?php include "../blocks/bloquesCss.html" ?>
     <link rel="stylesheet" href="../css/estilo.css?v=<?php echo (rand()); ?>" />
     <link rel="stylesheet" href="../css/paginaModelo.css?v=<?php echo (rand()); ?>" />
+    <link rel="stylesheet" href="../css/simbolosCalendario.css?v=<?php echo(rand()); ?>" />
 
 
 </head>
